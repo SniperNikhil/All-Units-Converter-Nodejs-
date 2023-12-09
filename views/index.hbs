@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary App</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="head">
+            <h1>All Unit Converter</h1>
+        </div>
+
+        <div class="Input">
+            <form action="/word" method="post">
+                <div class="custom-select">
+                    <label for="wordInput">Select a Unit</label>
+                    <select id="enteredWordOutput" name="myDropdown" onchange="printSelectedContent()" class="SelectedUnit">
+                        <option value="option0">Select</option>
+                        <option value="option1">Length</option>
+                        <option value="option2">Area</option>
+                        <option value="option3">Mass</option>
+                        <option value="option4">Volume</option>
+                        <option value="option5">Volume Flow Rate</option>
+                        <option value="option6">Temperature</option>
+                        <option value="option7">Time</option>
+                        <option value="option8">Frequency</option>
+                        <option value="option9">Speed</option>
+                        <option value="option10">Pace</option>
+                        <option value="option11">Pressure</option>
+                        <option value="option12">Digital</option>
+                        <option value="option13">Illuminance</option>
+                        <option value="option14">Parts-Per</option>
+                        <option value="option15">Voltage</option>
+                        <option value="option16">Current</option>
+                        <option value="option17">Power</option>
+                        <option value="option18">Apparent Power</option>
+                        <option value="option19">Reactive Power</option>
+                        <option value="option20">Energy</option>
+                        <option value="option21">Reactive Energy</option>
+                        <option value="option22">Angle</option>
+                    </select>
+                    <br>
+                </div>
+                <div class="SImain">
+                    <label for="wordInput">Enter the value and Select SI unit</label>
+                    <div class="SIunit">
+                        <input type="text" name="word" value="{{word}}" class="SIinput" id="inputvalue" oninput="validateInput(this)">
+                        <select name="myDropdown" class="SIdrop" id="inputunit">
+                            {{!-- Contents will be added here dynamically --}}
+                        </select>
+                    </div>
+                </div>
+            </form>
+
+            <div>
+                <label for="wordInput">Select in which unit you want to convert</label>
+                <select id="outputunit" name="myDropdown" class="SIdrop All">
+                </select>
+                <br>
+            </div>
+            {{!-- <br><br> --}}
+            <input type="submit" value="Reset" onclick="reset()">
+            <input type="submit" value="Calculate" id="Calculate">
+        </div>
+        <div class="Output">
+            <div id="outputdisplay">
+                <label for="category" style="margin-bottom: 10px;">Converted Unit Output</label>
+                <div id="categoryOutput">
+                    Output will be displayed Here
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.1.2/socket.io.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
